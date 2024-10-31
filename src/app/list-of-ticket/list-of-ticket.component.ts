@@ -7,7 +7,7 @@ import { Component, inject } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './list-of-ticket.component.html',
-  styleUrl: './list-of-ticket.component.css',
+  styleUrls: ['./list-of-ticket.component.css'],
 })
 export class ListOfTicketComponent {
   ticketsList: any = [];
