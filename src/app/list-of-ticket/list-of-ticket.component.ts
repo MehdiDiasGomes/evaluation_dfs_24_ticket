@@ -1,10 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 
 @Component({
   selector: 'app-list-of-ticket',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './list-of-ticket.component.html',
   styleUrl: './list-of-ticket.component.css',
 })
