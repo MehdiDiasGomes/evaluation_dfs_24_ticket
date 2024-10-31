@@ -6,21 +6,21 @@
             <div class="mb-4">
                 <label for="created_by" class="block text-gray-700 font-bold mb-2">Créé par</label>
                 <input type="text" id="created_by" name="created_by" [(ngModel)]="ticketData.created_by"
-                       class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200"
-                       placeholder="Nom du créateur" required>
+                    class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+                    placeholder="Nom du créateur" required>
             </div>
 
             <div class="mb-4">
                 <label for="description" class="block text-gray-700 font-bold mb-2">Description du problème</label>
                 <textarea id="description" name="description" rows="4" [(ngModel)]="ticketData.description"
-                          class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200"
-                          placeholder="Décrivez le problème" required></textarea>
+                    class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200"
+                    placeholder="Décrivez le problème" required></textarea>
             </div>
 
             <div class="mb-4">
                 <label for="priorite" class="block text-gray-700 font-bold mb-2">Priorité</label>
                 <select id="priorite" name="priorite" [(ngModel)]="ticketData.priorite"
-                        class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200">
+                    class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200">
                     <option value="Urgent">Urgent</option>
                     <option value="Élevé">Élevé</option>
                     <option value="Moyen">Moyen</option>
@@ -28,17 +28,22 @@
                 </select>
             </div>
 
-            <!-- <div class="mb-4">
+            <div class="mb-4">
                 <label for="assigne" class="block text-gray-700 font-bold mb-2">Assigner à un Employé</label>
                 <select id="assigne" name="assigne" [(ngModel)]="ticketData.assigne"
-                        class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200">
+                    class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200">
                     <option value="">Choisissez un employé</option>
-                    <option value="employe1">Employé 1</option>
-                    <option value="employe2">Employé 2</option>
+                    @for (employe of employees; track $index) {
+                    <option [value]="employe.username">
+                        {{employe.username}}
+                    </option>
+                    }
                 </select>
-            </div> -->
+            </div>
 
-            <button type="submit" class="w-full bg-blue-600 text-white font-bold py-2 rounded-md hover:bg-blue-700 transition duration-300">
+
+            <button type="submit"
+                class="w-full bg-blue-600 text-white font-bold py-2 rounded-md hover:bg-blue-700 transition duration-300">
                 Créer le Ticket
             </button>
         </form>

@@ -7,17 +7,23 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './create-ticket.component.html',
-  styleUrl: './create-ticket.component.css',
+  styleUrls: ['./create-ticket.component.css'],
 })
 export class CreateTicketComponent {
   http = inject(HttpClient);
-
   ticketData = {
     created_by: '',
     description: '',
     priorite: '',
-    // assigne: '',
+    assigne: '',
   };
+  employees: any[] = [];
+
+  ngOnInit() {
+    this.http.get('http://localhost:3000/users/employees').subscribe((data: any) => {
+      this.employees = data;
+    });
+  }
 
   createTicket() {
     this.http
@@ -27,7 +33,7 @@ export class CreateTicketComponent {
           created_by: '',
           description: '',
           priorite: '',
-          // assigne: '',
+          assigne: '',
         };
       });
   }
